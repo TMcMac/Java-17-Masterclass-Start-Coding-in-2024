@@ -48,85 +48,34 @@ public class Main {
     }
 
     public static String natoAlphabet(char letter) {
-        switch (letter) {
-            case 'A':
-            case 'a':
-                return ("ALPHA");
-            case 'B':
-            case 'b':
-                return ("BRAVO");
-            case 'C':
-            case 'c':
-                return ("CHARLIE");
-            case 'D':
-            case 'd':
-                return ("DELTA");
-            case 'E':
-            case 'e':
-                return ("ECHO");
-            case 'F':
-            case 'f':
-                return ("FOXTROT");
-            case 'G':
-            case 'g':
-                return ("GULF");
-            case 'H':
-            case 'h':
-                return ("HOTEL");
-            case 'I':
-            case 'i':
-                return ("INDIA");
-            case 'J':
-            case 'j':
-                return ("JULIET");
-            case 'K':
-            case 'k':
-                return ("KILO");
-            case 'L':
-            case 'l':
-                return ("LIMA");
-            case 'M':
-            case 'm':
-                return ("MIKE");
-            case 'N':
-            case 'n':
-                return ("NOVEMBER");
-            case 'O':
-            case 'o':
-                return ("OSCAR");
-            case 'P':
-            case 'p':
-                return ("PAPA");
-            case 'Q':
-            case 'q':
-                return ("QUEBEC");
-            case 'R':
-            case 'r':
-                return ("ROMEO");
-            case 'S':
-            case 's':
-                return ("SIERRA");
-            case 'T':
-            case 't':
-                return ("TANGO");
-            case 'U':
-            case 'u':
-                return ("UNIFORM");
-            case 'V':
-            case 'v':
-                return ("VICTOR");
-            case 'W':
-            case 'w':
-                return ("WHISKEY");
-            case 'X':
-            case 'x':
-                return ("XRAY");
-            case 'Z':
-            case 'z':
-                return ("ZULU");
-            default:
-                return "Error, invalid letter...";
-        }
+        return switch (letter) {
+            case 'A', 'a' -> ("ALPHA");
+            case 'B', 'b' -> ("BRAVO");
+            case 'C', 'c' -> ("CHARLIE");
+            case 'D', 'd' -> ("DELTA");
+            case 'E', 'e' -> ("ECHO");
+            case 'F', 'f' -> ("FOXTROT");
+            case 'G', 'g' -> ("GULF");
+            case 'H', 'h' -> ("HOTEL");
+            case 'I', 'i' -> ("INDIA");
+            case 'J', 'j' -> ("JULIET");
+            case 'K', 'k' -> ("KILO");
+            case 'L', 'l' -> ("LIMA");
+            case 'M', 'm' -> ("MIKE");
+            case 'N', 'n' -> ("NOVEMBER");
+            case 'O', 'o' -> ("OSCAR");
+            case 'P', 'p' -> ("PAPA");
+            case 'Q', 'q' -> ("QUEBEC");
+            case 'R', 'r' -> ("ROMEO");
+            case 'S', 's' -> ("SIERRA");
+            case 'T', 't' -> ("TANGO");
+            case 'U', 'u' -> ("UNIFORM");
+            case 'V', 'v' -> ("VICTOR");
+            case 'W', 'w' -> ("WHISKEY");
+            case 'X', 'x' -> ("XRAY");
+            case 'Z', 'z' -> ("ZULU");
+            default -> "Error, invalid letter...";
+        };
 
     }
 }
