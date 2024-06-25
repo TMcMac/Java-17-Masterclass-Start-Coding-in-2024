@@ -13,6 +13,9 @@ public class InchToCM {
     }
 
     public static double convertToCM ( int feet, int inches){
-        return convertToCM((feet * 12) + inches);
+        int feetToInches = feet * 12;
+        int totalInches = feetToInches + inches;
+
+        return convertToCM(totalInches);
     }
 }
