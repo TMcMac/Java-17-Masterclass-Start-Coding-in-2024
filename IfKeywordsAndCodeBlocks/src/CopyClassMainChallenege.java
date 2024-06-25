@@ -16,6 +16,17 @@ public class CopyClassMainChallenege {
         finalScore = calculateScore(gameOver, score, levelCompleted,bonus);
         System.out.println("Your final score wad: " + finalScore);
 
+        // Testing calculatePosition and displayHigh
+        int rankOne = calculateHighScorePosition(1500);
+        int rankTwo = calculateHighScorePosition(999);
+        int rankThree = calculateHighScorePosition(499);
+        int rankFour = calculateHighScorePosition(5);
+
+        displayHighScorePosition("Tim", rankOne);
+        displayHighScorePosition("Joe", rankTwo);
+        displayHighScorePosition("Megan", rankThree);
+        displayHighScorePosition("Mike", rankFour);
+
 
     }
 
@@ -26,5 +37,24 @@ public class CopyClassMainChallenege {
             finalScore += (levelCompleted * bonus) + 1000;
         }
         return(finalScore);
+    }
+
+    public static void displayHighScorePosition(String name, int position) {
+        System.out.println(name + " managed to get to high score position " + position);
+    }
+
+    public static int calculateHighScorePosition(int score) {
+
+        int position = 4;
+
+        if (score >= 1000) {
+            position = 1;
+        } else if (score >= 500 && score < 1000 ) {
+            position = 2;
+        } else if (score >= 100 && score < 500) {
+            position = 3;
+        }
+
+        return position;
     }
 }
