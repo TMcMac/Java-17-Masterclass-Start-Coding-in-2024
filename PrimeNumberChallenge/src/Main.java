@@ -1,11 +1,21 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("1 is " + (isPrime(1) ? "" : "NOT ") + "a prime number");
-        System.out.println("2 is " + (isPrime(2) ? "" : "NOT ") + "a prime number");
-        System.out.println("3 is " + (isPrime(3) ? "" : "NOT ") + "a prime number");
-        System.out.println("4 is " + (isPrime(4) ? "" : "NOT ") + "a prime number");
-        System.out.println("12 is " + (isPrime(12) ? "" : "NOT ") + "a prime number");
-        System.out.println("17 is " + (isPrime(17) ? "" : "NOT ") + "a prime number");
+
+        // Test Cases
+//        System.out.println("1 is " + (isPrime(1) ? "" : "NOT ") + "a prime number");
+//        System.out.println("2 is " + (isPrime(2) ? "" : "NOT ") + "a prime number");
+//        System.out.println("3 is " + (isPrime(3) ? "" : "NOT ") + "a prime number");
+//        System.out.println("4 is " + (isPrime(4) ? "" : "NOT ") + "a prime number");
+//        System.out.println("12 is " + (isPrime(12) ? "" : "NOT ") + "a prime number");
+//        System.out.println("17 is " + (isPrime(17) ? "" : "NOT ") + "a prime number");
+        int primesFound = 0;
+        for (int num = 0; num <= 100; num++) {
+            if (isPrime(num)) {
+                System.out.println(num + " is a prime number!");
+                primesFound++;
+            }
+        }
+        System.out.println("From 0 to 100 there are " + primesFound + " prime numbers!");
     }
 
     public static boolean isPrime(int wholeNumber) {
