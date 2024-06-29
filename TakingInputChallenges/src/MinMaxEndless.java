@@ -18,9 +18,9 @@ public class MinMaxEndless {
                 System.out.println("Max was: " + max + " and Min was: " + min);
                 break;
             }
-            if(validNum < min) {
+            if(validNum <= min) {
                 min = validNum;
-            } else if (validNum > max) {
+            } if (validNum >= max) {
                 max = validNum;
             }
             System.out.println("Max is: " + max + " and Min is: " + min);
