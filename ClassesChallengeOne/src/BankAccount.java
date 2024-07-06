@@ -11,6 +11,15 @@ public class BankAccount {
     private String customerEmail;
     private int customerPhoneNumber;
 
+    // Lets make our first constructor to replace Java's implicit constructor
+    public BankAccount(int accountNumber, double accountBalance, String customerName, String customerEmail, int customerPhoneNumber) {
+        this.accountNumber = accountNumber;
+        this.accountBalance = accountBalance;
+        this.customerName = customerName;
+        this.customerEmail = customerEmail;
+        this. customerPhoneNumber = customerPhoneNumber;
+    }
+
     // Getters and Setters for each field
     public int getAccountNumber() {
         return accountNumber;
