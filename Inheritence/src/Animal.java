@@ -2,7 +2,8 @@ public class Animal {
     // Top level class for animals
 
     // Attributes that theoretically all animals share
-    private String type;
+    // Changed type from private to protected so that dog can use type for a check
+    protected String type;
     private String size;
     private double weight;
 
