@@ -50,4 +50,5 @@ public class Worker {
     public String terminate(String endDate) {
         return (this.name + " ended employment on " + endDate);
     }
+
 }
