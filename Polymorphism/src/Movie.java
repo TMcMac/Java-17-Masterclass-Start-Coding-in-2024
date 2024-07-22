@@ -34,6 +34,10 @@ class Adventure extends Movie{
                 "Conflict/Setback for protagonist",
                 "Hero rises to the challenge");
     }
+
+    public void watchAdventure() {
+        System.out.println("Watching an Adventure!");
+    }
 }
 
 
@@ -50,6 +54,9 @@ class Comedy extends Movie{
                 "Goofs and Slap Stick",
                 "Happy ending");
     }
+    public void watchComedy() {
+        System.out.println("Watching a Comedy!");
+    }
 }
 
 class Horror extends Movie{
@@ -65,4 +72,8 @@ class Horror extends Movie{
                 "Tension builds to scary",
                 "All or most characters don't make it");
     }
+    public void watchHorror() {
+        System.out.println("Watching a Horror!");
+    }
+
 }
