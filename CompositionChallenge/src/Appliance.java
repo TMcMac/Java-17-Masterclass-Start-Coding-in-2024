@@ -20,7 +20,7 @@ class Refrigerator extends Appliance {
     }
 
     public void orderFood() {
-        if(hasWorkToDo == true) {
+        if(hasWorkToDo) {
             System.out.println("Ordering more food...");
             hasWorkToDo = false;
         } else {
@@ -35,7 +35,7 @@ class DishWasher extends Appliance {
     }
 
     public void doDishes() {
-        if(hasWorkToDo == true) {
+        if(hasWorkToDo) {
             System.out.println("Washing the dishes...");
             hasWorkToDo = false;
         } else {
@@ -50,7 +50,7 @@ class CoffeeMaker extends Appliance {
     }
 
     public void makeCoffee() {
-        if(hasWorkToDo == true) {
+        if(hasWorkToDo) {
             System.out.println("Brewing fresh coffee...");
             hasWorkToDo = false;
         } else {

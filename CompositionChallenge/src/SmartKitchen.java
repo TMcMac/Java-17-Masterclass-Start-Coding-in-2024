@@ -1,9 +1,9 @@
 import java.sql.Ref;
 
 public class SmartKitchen {
-    private CoffeeMaker coffeeMaker;
-    private DishWasher dishWasher;
-    private Refrigerator fridge;
+    protected CoffeeMaker coffeeMaker;
+    protected DishWasher dishWasher;
+    protected Refrigerator fridge;
 
     public SmartKitchen(CoffeeMaker coffeeMaker, DishWasher dishWasher, Refrigerator fridge) {
         this.coffeeMaker = coffeeMaker;
@@ -16,7 +16,7 @@ public class SmartKitchen {
     }
 
     public void pourMilk() {
-        coffeeMaker.hasWorkToDo = true;
+        fridge.hasWorkToDo = true;
     }
 
     public void loadDishwasher() {
