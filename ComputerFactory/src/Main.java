@@ -7,8 +7,11 @@ public class Main {
         PersonalComputer thePC = new PersonalComputer("2208", "Dell", theMonitor, theMotherBoard, theCase);
 
         // Through function chaining we can access the functions on the classes, this is using composition
-        thePC.getMonitor().drawPixelAt(10,10,"red");
-        thePC.getMotherboard().loadProgram("Windows OS");
-        thePC.getComputerCase().pressPowerButton();
+//        thePC.getMonitor().drawPixelAt(10,10,"red");
+//        thePC.getMotherboard().loadProgram("Windows OS");
+//        thePC.getComputerCase().pressPowerButton();
+
+        // Through composition thePC is looking after its parts (including other objects) and main doesnt need to know about PC's parts
+        thePC.powerUp();
     }
 }

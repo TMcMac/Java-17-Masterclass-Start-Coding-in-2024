@@ -11,15 +11,25 @@ public class PersonalComputer extends Product{
         this.computerCase = computerCase;
     }
 
-    public Monitor getMonitor() {
-        return monitor;
-    }
+    // These expose the parts directly to the calling code
+//    public Monitor getMonitor() {
+//        return monitor;
+//    }
+//
+//    public Motherboard getMotherboard() {
+//        return motherboard;
+//    }
+//
+//    public ComputerCase getComputerCase() {
+//        return computerCase;
+//    }
 
-    public Motherboard getMotherboard() {
-        return motherboard;
+    // Using better encapsulation we'll write functions to keep the computer parts hidden while restoring functionality
+    private void drawLogo() {
+        monitor.drawPixelAt(1200,50, "yellow");
     }
-
-    public ComputerCase getComputerCase() {
-        return computerCase;
+    public void powerUp() {
+        computerCase.pressPowerButton();
+        drawLogo();
     }
 }
