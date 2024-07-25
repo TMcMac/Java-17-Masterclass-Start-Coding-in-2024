@@ -62,6 +62,22 @@ public class Main {
         System.out.println(Arrays.toString(copyRando));
         System.out.println(Arrays.toString(copySomeRando));
 
+        //Now lets look at some serach functionality
+        String[] namesArray = {"Tim", "Laura", "Andy", "Sarah", "Imogen", "Mordecai", "Xajavie", "Bob", "Annette", "Sammy", "Theodore", "Ophelia"};
+        // The array must be sorted as binary search only works on sorted arrays
+        Arrays.sort(namesArray);
+        System.out.println(Arrays.toString(namesArray));
+        if (Arrays.binarySearch(namesArray, "Theodore") >= 0) {
+            System.out.println("Found Theo in the list");
+        }
+
+        // Checking array equality, order of the elements matters too, so muc be same values in the same order
+        int[] s1 = {1,2,3,4,5,6,7,8,9};
+        int[] s2 = {1,2,3,4,5,6,7,8,9};
+        if(Arrays.equals(s1,s2)) {
+            System.out.println("The arrays are equal");
+        }
+
     }
     private static int[] getRandomArray(int len) {
         // Function to create an integer array of random numbers
