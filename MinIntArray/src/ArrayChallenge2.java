@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.*;
 
 public class ArrayChallenge2 {
-   
+
         private static int readInteger() {
             Scanner myScan = new Scanner(System.in);
             int size;
