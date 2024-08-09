@@ -28,7 +28,12 @@ public class Main {
                 System.out.println("Quitting, thanks!");
                 break;
             } else if (entry == 1) {
-                shoppingList.addAll(Arrays.asList(addToList()));
+                String[] newItems = addToList();
+                for (String item : newItems) {
+                    if (shoppingList.indexOf(item) < 0) {
+                        shoppingList.add(item);
+                    }
+                }
             } else if (entry == 2) {
                 shoppingList.removeAll(Arrays.asList(removeFromList()));
             }
