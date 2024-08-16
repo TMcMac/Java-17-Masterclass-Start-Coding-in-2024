@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+import java.util.ListIterator;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,14 +18,17 @@ public class Main {
         System.out.println(placesToVisit);
         addMoreElements(placesToVisit);
         System.out.println(placesToVisit);
-        removeElements(placesToVisit);
-        System.out.println(placesToVisit);
+        // Commenting out the remove for now, uncomment to test
+//        removeElements(placesToVisit);
+//        System.out.println(placesToVisit);
 
+        // Retrieving elements
+//        gettingElements(placesToVisit);
 
-        placesToVisitAgain.add("Portland");
-        placesToVisitAgain.add("Seattle");
-        placesToVisitAgain.add(0, "New York");
-        System.out.println(placesToVisitAgain);
+        //Transversing and manipulating a list
+//        printItinerary(placesToVisit);
+//        printItinerary2(placesToVisit);
+        printItinerary3(placesToVisit);
 
     }
 
@@ -69,5 +73,72 @@ public class Main {
         System.out.println(list);
         String p4 = list.pop(); //removed top of stack ie first element in linked list
         System.out.println(p4 + " was removed.");
+    }
+
+    public static void gettingElements(LinkedList<String> list) {
+        // gets element at index 4 (fifth element)
+        System.out.println("Retrieved Element = " + list.get(4));
+        // Get by index in array is O(1) worst but O(N) for singly linked list, dor double java picks head or tail
+        // based on what is closer so technically the worst is O(N/2)
+        System.out.println("First Element = " + list.getFirst());
+        System.out.println("Last Element = " + list.getLast());
+
+        // Worst case is O(N) and best case is O(1) if its the first element
+        System.out.println("Tokyo is at index: " + list.indexOf("Tokyo"));
+        System.out.println("Lisbon is at: " + list.lastIndexOf("Lisbon"));
+
+        //Queue retrieval method
+        System.out.println("Element from element() = " + list.element()); // Queue is FIFO so first element if no param
+
+        // Stack retrieval methods
+        System.out.println("Element from peek() = " + list.peek());
+        System.out.println("Element from peekLast() = " + list.peekLast());
+        System.out.println("Element from peekFirst() = " + list.peekFirst());
+    }
+
+    public static void printItinerary(LinkedList<String> list) {
+        // Working on transversing and manipulating a linked list
+        System.out.println("First stop = " + list.getFirst());
+
+        for(int i = 1; i < list.size(); i++) {
+            System.out.println("--> From: " + list.get(i-1) + " to " + list.get(i));
+        }
+        System.out.println("Last stop = " + list.getLast());
+
+    }
+
+    public static void printItinerary2(LinkedList<String> list) {
+        // Working on transversing and manipulating a linked list
+        System.out.println("First stop = " + list.getFirst());
+        String previousTown = list.getFirst();
+        for(String town : list) {
+            System.out.println("--> From: " + previousTown + " to " + town);
+            previousTown = town;
+        }
+        System.out.println("Last stop = " + list.getLast());
+
+    }
+
+    public static void printItinerary3(LinkedList<String> list) {
+        // Working on transversing and manipulating a linked list
+        System.out.println("First stop = " + list.getFirst());
+        String previousTown = list.getFirst();
+        // Iterator is another way to transverse linked lists, similar to a database cursor
+        // Specifically it is an object that allows traversal over records in a collection
+        ListIterator<String> iterator = list.listIterator(1);
+        // hasNext allows for checking if there is a next element and of course returns a bool
+        while(iterator.hasNext()) {
+            // Calling next can advance the iterator in the list/collection
+            // Here we print each element in a list but via the iterator object
+            var town = iterator.next();
+            System.out.println("--> From: " + previousTown + " to " + town);
+            previousTown = town;
+        }
+        System.out.println("Last stop = " + list.getLast());
+
+        // A few notes, the iterator can only move forward through the list and the old mutation option is
+        // iterator.remove(), you can not add or use list.remove() when using iterator
+        // ListIterator is the enhanced iterator and has these and more functionality
+
     }
 }
