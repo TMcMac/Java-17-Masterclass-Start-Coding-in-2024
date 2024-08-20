@@ -6,8 +6,6 @@ public class Main {
     public static void main(String[] args) {
         // Build out itinerary of cities and distances
         LinkedList<Place> placesToVisit = cities();
-        // We need a scanner to take input from the CLI
-        Scanner scanner = new Scanner(System.in);
         // We'll use an iterator to move back and forth through the linked list placesToVisit
         ListIterator<Place> iterator = placesToVisit.listIterator(0);
         // This will be our menu of options
@@ -22,14 +20,34 @@ public class Main {
         System.out.println("Welcome to my trip planner app\nTo see the trip we have planned us the following menu.\n");
         System.out.println(menu);
         while(true) {
-            String input = scanner.nextLine().toUpperCase();
-            Place currentCity = iterator.next();
+            // We need a scanner to take input from the CLI
+            Scanner scanner = new Scanner(System.in);
+            String input = scanner.nextLine().toUpperCase().stripTrailing();
             switch (input) {
                 case "F", "FORWARD":
+                    if(iterator.hasNext()) {
+                        iterator.next();
+                    } else {
+                        System.out.println("There is no next, it was a great trip!");
+                    }
+                case "B", "BACKWARD":
+                    if(iterator.hasPrevious()) {
+                        iterator.previous();
+                    } else {
+                        System.out.println("There is no previous, we're at the start of a great trip!");
+                    }
+                case "L", "LIST":
+                    printItinerary(placesToVisit);
+                case "M", "MENU":
+                    System.out.println(menu);
+                case "Q", "QUIT":
+                    System.out.println("Thanks for checking out the trip!");
+                    return;
+                default:
+                    System.out.println("Please select an item from the menu...");
+                    input = "";
             }
         }
-
-
 
     }
 
@@ -53,10 +71,12 @@ public class Main {
 
     public static void printItinerary(LinkedList<Place> itinerary) {
         // Start an iterator at the first city after SF and print the whole list
-        ListIterator<Place> iterator = itinerary.listIterator(1);
-        while(iterator.hasNext()) {
-            Place city = iterator.next();
-            System.out.println("Destination: " + city.getCityName() + " Distance from SF: " + city.getDistance() + " miles");
+        ListIterator<Place> listIter = itinerary.listIterator(0);
+        int i = 0;
+        while(listIter.hasNext()) {
+            Place city = listIter.next();
+            System.out.println("Destination " + i +": " + city.getCityName() + " Distance from SF: " + city.getDistance() + " miles");
+            i++;
         }
     }
 
