@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main {
@@ -19,6 +20,9 @@ public class Main {
         Integer[] wrapperArray = new Integer[5];
         wrapperArray[0]  = 50;
         System.out.println(Arrays.toString(wrapperArray));
+
+        var ourList = getList(1,2,3,4,5,6,7,8,9,10);
+        System.out.println(ourList);
     }
 
 
@@ -37,5 +41,14 @@ public class Main {
     }
     public  static Integer returnAnInteger(int i) {
         return i;
+    }
+
+    // Function takes a variable length list of ints and returns an ArrayList of Integers
+    private static ArrayList<Integer> getList(int... varargs) {
+        ArrayList<Integer> aList = new ArrayList<>();
+        for (int i : varargs) {
+            aList.add(i);
+        }
+        return aList;
     }
 }
