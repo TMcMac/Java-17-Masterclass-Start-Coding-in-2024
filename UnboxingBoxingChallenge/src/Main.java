@@ -31,7 +31,7 @@ public class Main {
 
 class Bank {
     private String name;
-    private ArrayList<Customer> customers = new ArrayList<>(5000);
+    private ArrayList<Customer> customers = new ArrayList<>(500);
 
     public Bank(String name) {
         this.name = name;
