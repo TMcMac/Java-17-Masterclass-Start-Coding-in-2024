@@ -46,7 +46,7 @@ public class Bank {
 
     public boolean listCustomers(String branchName, boolean listTransactions) {
         Branch theBranch = findBranch(branchName);
-        
+
         if (theBranch != null) {
             System.out.println("Customer details for branch " + theBranch.getName());
             ArrayList<Customer> theCustomers = theBranch.getCustomers();
