@@ -16,6 +16,6 @@ public abstract class Animal {
     // Abstract methods form a blueprint but have no functionality so children that inherit must institute a method
     // of that name but must also build out their unique functionality as the parent method is just an abstract
     // the subclass will not compile if it does not implement concrete versions of the abstract methods from parent
-    public abstract void move(String Speed);
+    public abstract void move(String speed);
     public abstract void makeNoise();
 }
