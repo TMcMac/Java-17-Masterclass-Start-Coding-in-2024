@@ -4,6 +4,10 @@ interface FlightEnabled {
     public abstract void takeOff();
     abstract void land();
     void fly();
+
+    // Attributes declared on an interface are implicitly Public, Static, and Final meaning they are constants (all caps)
+    double MILES_TO_KM = 1.60934;
+    double KM_TO_MILES = 0.621371;
 }
 
 interface Trackable {
