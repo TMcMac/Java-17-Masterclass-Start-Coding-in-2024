@@ -18,4 +18,25 @@ public abstract class Animal {
     // the subclass will not compile if it does not implement concrete versions of the abstract methods from parent
     public abstract void move(String speed);
     public abstract void makeNoise();
+
+    // A helper function to get the more specific name of the animal, final makes it so children don't override this
+    public final String getExplicitType() {
+        return getClass().getSimpleName() + " (" + type + ")";
+    }
+}
+
+// An abstract class that extends another abstract class has some flexibility to implement all, none, or some methods
+abstract class Mammal extends Animal {
+
+    public Mammal(String type, String size, double weight) {
+        super(type, size, weight);
+    }
+
+    @Override
+    public void move(String speed) {
+        System.out.print(getExplicitType() + " ");
+        System.out.println(speed.equals("slow") ? "walks" : "runs");
+    }
+
+    public abstract void shedHair();
 }

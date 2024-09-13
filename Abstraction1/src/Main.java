@@ -25,9 +25,13 @@ public class Main {
         animals.add(new Fish("Shark", "Large", 350));
         animals.add(new Fish("Tuna", "Medium", 55));
         animals.add(new Dog("Chihuahua", "Tiny", 11));
+        animals.add(new Horse("Clydesdale", "Very Large", 1000));
 
         for (Animal animal : animals) {
             doAnimalStuff(animal);
+            if (animal instanceof Mammal currentMammal) {
+                currentMammal.shedHair();
+            }
         }
     }
 

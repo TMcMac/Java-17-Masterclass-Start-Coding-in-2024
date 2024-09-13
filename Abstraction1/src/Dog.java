@@ -1,4 +1,4 @@
-public class Dog extends Animal{
+public class Dog extends Mammal{
     // We MUST have a constructor that calls super because we built a constructor on Animal so there is no default
     // no args constructor, the abstract parent is much stricter than normal parents and forces children to follow rules
     public Dog(String type, String size, double weight) {
@@ -10,10 +10,15 @@ public class Dog extends Animal{
     @Override
     public void move(String speed) {
         if (speed.equals("slow")) {
-            System.out.println(type + " walking");
+            System.out.println(getExplicitType() + " walking");
         } else {
-            System.out.println(type + " running");
+            System.out.println(getExplicitType() + " running");
         }
+    }
+
+    @Override
+    public void shedHair() {
+        System.out.print(getExplicitType() + " sheds all the time.");
     }
 
     @Override
