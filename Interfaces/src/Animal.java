@@ -17,6 +17,57 @@ interface Trackable {
     void track();
 }
 
+interface orbitsEarth extends FlightEnabled, Trackable {
+    // Interfaces to implement other interfaces so you need to use extends
+    void achieveOrbit();
+}
+
+class satalite implements orbitsEarth {
+
+    @Override
+    public void takeOff() {
+
+    }
+
+    @Override
+    public void land() {
+
+    }
+
+    @Override
+    public void fly() {
+
+    }
+
+    @Override
+    public void track() {
+
+    }
+
+    @Override
+    public void achieveOrbit() {
+
+    }
+}
+
+record Dragonfly(String name, String type) implements FlightEnabled {
+
+    @Override
+    public void takeOff() {
+
+    }
+
+    @Override
+    public void land() {
+
+    }
+
+    @Override
+    public void fly() {
+
+    }
+}
+
 public abstract class Animal {
     public abstract void move();
 
