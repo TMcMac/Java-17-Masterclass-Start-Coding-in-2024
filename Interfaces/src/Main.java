@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.List;
+
 public class Main {
     // No we are working on interfaces
     // An interface is like an abstract class though it isn't a class. An interface is more like a contract that forces
@@ -42,14 +45,51 @@ public class Main {
         double kmsTraveled = 100;
         double milesTraveled = kmsTraveled * FlightEnabled.KM_TO_MILES;
         System.out.printf("The truck has traveled %.2f km or %.2f miles%n", kmsTraveled, milesTraveled);
+
+        LinkedList<FlightEnabled> fliers = new LinkedList<>();
+        fliers.add(newBird);
+
+        List<FlightEnabled> betterFliers = new LinkedList<>();
+        betterFliers.add(newBird);
+
+        triggerFliers(fliers);
+        flyFliers(fliers);
+        landFliers(fliers);
+
+        triggerFliers(betterFliers);
+        flyFliers(betterFliers);
+        landFliers(betterFliers);
+
     }
 
-    private static  void inFlight(FlightEnabled flier) {
+    private static void inFlight(FlightEnabled flier) {
+
         flier.takeOff();
         flier.fly();
         if (flier instanceof Trackable tracked) {
             tracked.track();
         }
         flier.land();
+    }
+
+    private static void triggerFliers(List<FlightEnabled> fliers) {
+
+        for (var flier : fliers) {
+            flier.takeOff();
+        }
+    }
+
+    private static void flyFliers(List<FlightEnabled> fliers) {
+
+        for (var flier : fliers) {
+            flier.fly();
+        }
+    }
+
+    private static void landFliers(List<FlightEnabled> fliers) {
+
+        for (var flier : fliers) {
+            flier.land();
+        }
     }
 }

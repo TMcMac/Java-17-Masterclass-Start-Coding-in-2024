@@ -1,6 +1,7 @@
 public class Jet implements FlightEnabled, Trackable {
     // A bird and a jet have little in common besides flying but they can both implement the interfaces showing the
     // benefit of using interfaces
+
     @Override
     public void takeOff() {
         System.out.println(getClass().getSimpleName() + " is taking off");
@@ -19,5 +20,11 @@ public class Jet implements FlightEnabled, Trackable {
     @Override
     public void track() {
         System.out.println(getClass().getSimpleName() + "'s coordinates recorded");
+    }
+
+    @Override
+    public FlightStages transition(FlightStages stage) {
+        System.out.println(getClass().getSimpleName() + " transitioning");
+        return FlightEnabled.super.transition(stage);
     }
 }
