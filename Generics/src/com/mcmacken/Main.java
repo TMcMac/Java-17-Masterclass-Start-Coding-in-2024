@@ -13,9 +13,12 @@ public class Main {
         SportsTeam wolverines = new SportsTeam("Michigan Wolverines");
         SportsTeam spatans = new SportsTeam("Michigan State Spartans");
 
-        // By adding the player type to our generic we no prevent adding say a football player to a baseball team
+        // By adding the player type to our generic we prevent adding say a football player to a baseball team
         Team<BaseballPlayer> astros = new Team("Houston Astros");
         Team<BaseballPlayer> redSox = new Team("Boston Redsox");
+
+        Team<FootballPlayer> bears = new Team("Chicago Bears");
+        Team<FootballPlayer> packers = new Team("Greenbay Packers");
 
         scoreResult(tigers, 7, yankees, 2);
 

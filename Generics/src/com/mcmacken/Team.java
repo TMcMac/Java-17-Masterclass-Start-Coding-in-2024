@@ -3,9 +3,11 @@ package com.mcmacken;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Team<T> {
-    // This is where we get truly generic with T being out input type so we can type
-    // things as they come into this class, Team<T> can
+public class Team<T extends Player> {
+    // This is where we get truly generic with T being our so we can type
+    // things as they come into this class, and by having T extend player parameterized T must be a player
+    // or subtype of player, player can be a class or an interface, this establishes an upper bound on types that may
+    // be used with this class
     private String teamName;
     private List<T> teamMembers = new ArrayList<>();
     int totalWins = 0;
