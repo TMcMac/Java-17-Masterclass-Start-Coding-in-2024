@@ -12,5 +12,14 @@ public class Main {
 
         Layer<USCities> citiesLayer = new Layer<>(cities);
         citiesLayer.renderLayer();
+
+        var interstates = new USInterstates[] {
+                new USInterstates("I-80", "37.803702, -122.371313",
+                        "39.536769, -119.786779",
+                        "40.76140936002684, -111.90401325624426",
+                        "41.226614425723376, -95.95440873085907",
+                        "41.578522, -87.674934",
+                        "40.864251, -74.014980")
+        }
     }
 }
