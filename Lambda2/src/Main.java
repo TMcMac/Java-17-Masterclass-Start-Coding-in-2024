@@ -1,5 +1,8 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.function.BiConsumer;
+import java.util.function.BinaryOperator;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,6 +29,32 @@ public class Main {
         int result2 = calculator((a, b) -> a * b, 5, 2);
         var result3 = calculator((a, b) -> a / b, 5.0, 2.0);
         var result4 = calculator((a, b) -> a.toUpperCase() + " " + b.toUpperCase(), "Ralph", "Kramden");
+        // Now with the Java built in version
+        var result5 = calculatorDefualt((a, b) -> a.toUpperCase() + " " + b.toUpperCase(), "Ralph", "Kramden");
+
+        // Nex lets work with some coordinates
+        var coords = Arrays.asList(
+                new double[]{47.2160, -95.2348},
+                new double[]{29.1566, -89.2495},
+                new double[]{35.1556, -90.0659}
+        );
+        coords.forEach(s -> System.out.println(Arrays.toString(s)));
+
+        // Using the biConsumer function
+        // Make a simple function to be executed and assign it to a variable
+        BiConsumer<Double, Double> function1 = (lat, lon) -> System.out.printf("[lat: %.3f lon:%.3f]%n", lat, lon);
+
+        // Get a coordinate pair
+        var firstPoint = coords.getFirst();
+
+        // Send the coordinate points and print function to our BiConsumer to be executed
+        processPoint(firstPoint[0], firstPoint[1], function1);
+
+        // Now we'll use a for each to print each coord pair nicely
+        System.out.println("_________");
+        coords.forEach(s -> processPoint(s[0], s[1], function1));
+        // You could even skip the function1 assignment above and stick the lambda directly in this call, but that is
+        // less reusable.
     }
     // This is a static generic method that uses our generic lambda Operation, overrides the method
     // and does something to the two generic type values (of same type)
@@ -33,5 +62,28 @@ public class Main {
         T result = function.operate(value1, value2);
         System.out.println(result);
         return result;
+    }
+
+    // Now lets look at a builtin function from java.util.functions BinaryOperator
+    // This is the exact same as the generic class and first calculator we made, turns out Java already had this
+    public static <T> T calculatorDefualt(BinaryOperator<T> function, T value1, T value2) {
+        T result = function.apply(value1, value2);
+        System.out.println(result);
+        return result;
+    }
+
+    // In java.util.function there are over 40 interfaces but the 4 main catagories and there most basic method are
+    // Consumer - void accept(T t) - executes code without returning data
+    // Function - R apply(T t) - return the result of an operation or function
+    // Predicate - boolean test(T t) - test if a condition is true or false
+    // Supplier - T get() - return an instance of something
+
+    // we wrote a Function, a version of BinaryOperator (two arguments) that did a thing and returned a value
+    // System.out.println(s) is an example of a consumer, executes and operation, no return
+
+
+    // Using a java built in consumer that takes two parameters
+    public static <T> void processPoint(T t1, T t2, BiConsumer<T, T> consumer) {
+        consumer.accept(t1, t2);
     }
 }
