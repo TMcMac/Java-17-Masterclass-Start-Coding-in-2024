@@ -6,20 +6,20 @@ import java.util.function.BinaryOperator;
 
 public class Main {
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>(List.of("alpha", "bravo", "charlie", "delta", "echo", "foxtrot"));
+        List<String> natoList = new ArrayList<>(List.of("alpha", "bravo", "charlie", "delta", "echo", "foxtrot"));
 
         // nice simple way that doesn't need indexing
-        for (String s : list) {
+        for (String s : natoList) {
             System.out.println(s);
         }
         System.out.println("_________");
         // Now with a lambda, the foreach method is really an enhanced for loop under the hood
-        list.forEach((String s) -> System.out.println(s));
+        natoList.forEach((String s) -> System.out.println(s));
 
         System.out.println("_________");
         // If you want to use multiple statements in the lambda use {} and end each line with a ';'
         // You can also choose to specify type, var, or skip declaring and not use the extra '( )'
-        list.forEach((var s) -> {
+        natoList.forEach((var s) -> {
             char first = s.charAt(0);
             System.out.println(s + " means " + first);
         });
@@ -55,6 +55,16 @@ public class Main {
         coords.forEach(s -> processPoint(s[0], s[1], function1));
         // You could even skip the function1 assignment above and stick the lambda directly in this call, but that is
         // less reusable.
+
+
+        // A predicate lambda expression - ie a boolean test
+        // this expression takes list and removes an element, if it matches a case-insensitive string
+        // Use cmd + click to view removeIf under the hood
+        natoList.removeIf(s -> s.equalsIgnoreCase("bravo"));
+        // Then print natoList to check
+        System.out.println("_________");
+        natoList.forEach(s -> System.out.println(s));
+
     }
     // This is a static generic method that uses our generic lambda Operation, overrides the method
     // and does something to the two generic type values (of same type)
