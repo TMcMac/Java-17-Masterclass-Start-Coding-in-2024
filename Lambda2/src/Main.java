@@ -6,7 +6,7 @@ import java.util.function.BinaryOperator;
 
 public class Main {
     public static void main(String[] args) {
-        List<String> natoList = new ArrayList<>(List.of("alpha", "bravo", "charlie", "delta", "echo", "foxtrot"));
+        List<String> natoList = new ArrayList<>(List.of("alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "gulf", "hotel", "india"));
 
         // nice simple way that doesn't need indexing
         for (String s : natoList) {
@@ -64,6 +64,39 @@ public class Main {
         // Then print natoList to check
         System.out.println("_________");
         natoList.forEach(s -> System.out.println(s));
+
+        // Working with functions again
+        natoList.replaceAll(s -> s.charAt(0) + " - " + s.toUpperCase());
+        System.out.println("_________");
+        natoList.forEach(s -> System.out.println(s));
+
+        // Function interfaces
+
+        // null filled array
+        String[] emptyStrings = new String[10];
+        System.out.println(Arrays.toString(emptyStrings));
+
+        // Now filled with empty strings
+        Arrays.fill(emptyStrings, "");
+        System.out.println(Arrays.toString(emptyStrings));
+
+        // now with a lambda enumerating the strings
+        Arrays.setAll(emptyStrings, (i) -> "" + (i + 1) + ". ");
+        System.out.println(Arrays.toString(emptyStrings));
+
+        // Take the same tactic but use a switch expression
+        Arrays.setAll(emptyStrings, (i) -> "" + (i + 1) + ". "
+         + switch (i) {
+            case 0 -> "one";
+            case 1 -> "two";
+            case 2 -> "three";
+            default -> "";
+                }
+        );
+        System.out.println(Arrays.toString(emptyStrings));
+
+        // Supplier methods are lambdas that take in no params but return an instance of something
+        // random is a good example of this as it takes no params and returns a random int
 
     }
     // This is a static generic method that uses our generic lambda Operation, overrides the method
